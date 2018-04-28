@@ -3,7 +3,7 @@ plugins {
 }
 
 jar {
-    baseName = 'book1'
+    baseName = 'apache-spark-for-java-developers-examples'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
