@@ -37,7 +37,7 @@ public class MapSideJoinBroadcast {
             Broadcast<Map<String, String>> citiesBroadcasted = jsc.broadcast(cityIdToCityName.collectAsMap());
 
             JavaRDD<Tuple3<String, String, String>> joined = userIdToCityId
-                    .map(v1 -> new Tuple3<String, String, String>(v1._1(), v1._2(), citiesBroadcasted.value()
+                    .map(v1 -> new Tuple3<>(v1._1(), v1._2(), citiesBroadcasted.value()
                             .get(v1._2())));
 
             System.out.println(joined.collect());

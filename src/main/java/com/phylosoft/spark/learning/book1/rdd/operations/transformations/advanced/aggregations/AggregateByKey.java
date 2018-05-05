@@ -5,7 +5,8 @@ import org.apache.spark.api.java.JavaPairRDD;
 import scala.Tuple2;
 
 import java.util.Arrays;
-import java.util.List;
+
+import static com.phylosoft.spark.learning.book1.rdd.Runner.display;
 
 public class AggregateByKey {
 
@@ -14,15 +15,15 @@ public class AggregateByKey {
         new JavaApiRuntime("AggregateByKey").run((jsc) -> {
 
             JavaPairRDD<String, String> pairRDD = jsc.parallelizePairs(Arrays.asList(
-                    new Tuple2<String, String>("key1", "Austria"),
-                    new Tuple2<String, String>("key2", "Australia"),
-                    new Tuple2<String, String>("key3", "Antartica"),
-                    new Tuple2<String, String>("key1", "Asia"),
-                    new Tuple2<String, String>("key2", "France"),
-                    new Tuple2<String, String>("key3", "Canada"),
-                    new Tuple2<String, String>("key1", "Argentina"),
-                    new Tuple2<String, String>("key2", "American Samoa"),
-                    new Tuple2<String, String>("key3", "Germany")), 3);
+                    new Tuple2<>("key1", "Austria"),
+                    new Tuple2<>("key2", "Australia"),
+                    new Tuple2<>("key3", "Antartica"),
+                    new Tuple2<>("key1", "Asia"),
+                    new Tuple2<>("key2", "France"),
+                    new Tuple2<>("key3", "Canada"),
+                    new Tuple2<>("key1", "Argentina"),
+                    new Tuple2<>("key2", "American Samoa"),
+                    new Tuple2<>("key3", "Germany")), 3);
 
             JavaPairRDD<String, Integer> aggregateByKey = null;
             String mode = "1";
@@ -47,12 +48,7 @@ public class AggregateByKey {
                     break;
             }
 
-            if (aggregateByKey != null) {
-                List<Tuple2<String, Integer>> output = aggregateByKey.collect();
-                for (Tuple2<?, ?> tuple : output) {
-                    System.out.println(tuple._1() + ": " + tuple._2());
-                }
-            }
+            display(aggregateByKey);
 
         });
 

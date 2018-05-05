@@ -8,6 +8,8 @@ import scala.Tuple2;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.phylosoft.spark.learning.book1.rdd.Runner.display;
+
 public class RepartitionAndSortWithinPartitions {
 
     public static void main(String[] args) throws Exception {
@@ -30,12 +32,7 @@ public class RepartitionAndSortWithinPartitions {
             JavaPairRDD<Integer, String> resultRdd = unPartitionedRDD
                     .repartitionAndSortWithinPartitions(new HashPartitioner(2));
 
-
-            List<Tuple2<Integer, String>> output = resultRdd.collect();
-            for (Tuple2<?, ?> tuple : output) {
-                System.out.println(tuple._1() + ": " + tuple._2());
-            }
-
+            display(resultRdd);
 
         });
 

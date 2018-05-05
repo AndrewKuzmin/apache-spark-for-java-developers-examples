@@ -4,6 +4,8 @@ import com.phylosoft.spark.learning.book1.rdd.JavaApiRuntime;
 import org.apache.spark.api.java.JavaPairRDD;
 import scala.Tuple2;
 
+import static com.phylosoft.spark.learning.book1.rdd.Runner.display;
+
 public class ReduceByKey {
 
     public static void main(String[] args) throws Exception {
@@ -16,7 +18,8 @@ public class ReduceByKey {
             JavaPairRDD<String, Integer> counts = pairs
                     .reduceByKey((a, b) -> a + b);
             counts.sortByKey();
-            counts.collect();
+
+            display(counts);
         });
 
     }

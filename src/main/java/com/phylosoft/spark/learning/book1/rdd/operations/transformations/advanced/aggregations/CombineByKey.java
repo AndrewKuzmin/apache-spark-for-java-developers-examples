@@ -5,7 +5,8 @@ import org.apache.spark.api.java.JavaPairRDD;
 import scala.Tuple2;
 
 import java.util.Arrays;
-import java.util.List;
+
+import static com.phylosoft.spark.learning.book1.rdd.Runner.display;
 
 public class CombineByKey {
 
@@ -55,12 +56,7 @@ public class CombineByKey {
                     break;
             }
 
-            if (combineByKey != null) {
-                List<Tuple2<String, Integer>> output = combineByKey.collect();
-                for (Tuple2<?, ?> tuple : output) {
-                    System.out.println(tuple._1() + ": " + tuple._2());
-                }
-            }
+            display(combineByKey);
 
         });
 

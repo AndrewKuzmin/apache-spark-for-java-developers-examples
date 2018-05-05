@@ -14,7 +14,7 @@ public class TestAccumulator {
 
             LongAccumulator longAccumulator = jsc.sc().longAccumulator("ExceptionCounter");
 
-            JavaRDD<String> textFile = jsc.textFile("data2/phylosoft/logFileWithException.log");
+            JavaRDD<String> textFile = jsc.textFile("data/phylosoft/book1/logFileWithException.log.txt");
             textFile.foreach((VoidFunction<String>) line -> {
                 if (line.contains("Exception")) {
                     longAccumulator.add(1);

@@ -6,8 +6,9 @@ import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.phylosoft.spark.learning.book1.rdd.Runner.display;
 
 public class FoldByKey {
 
@@ -36,12 +37,7 @@ public class FoldByKey {
                     break;
             }
 
-            if (foldByKey != null) {
-                List<Tuple2<String, Integer>> output = foldByKey.collect();
-                for (Tuple2<?, ?> tuple : output) {
-                    System.out.println(tuple._1() + ": " + tuple._2());
-                }
-            }
+            display(foldByKey);
 
         });
 
