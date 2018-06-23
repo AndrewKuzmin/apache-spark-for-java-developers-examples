@@ -7,3 +7,9 @@ Examples from below books were used:
 2) [Spark with Java](https://www.manning.com/books/spark-with-java) by Jean Georges Perrin;
 
 
+Examples from below links were used:
+
+1) [Data Sketches](https://datasketches.github.io/)
+    - [Example of using ThetaSketch in Spark](https://datasketches.github.io/docs/Theta/ThetaSparkExample.html)
+
+

@@ -24,5 +24,8 @@ dependencies {
 
     compile "org.apache.spark:spark-core_${scalaVersion}:${sparkVersion}"
     compile "org.apache.spark:spark-sql_${scalaVersion}:${sparkVersion}"
+    compile "org.apache.spark:spark-hive_${scalaVersion}:${sparkVersion}"
+
+    compile "com.yahoo.datasketches:sketches-core:0.11.1"
 
 }
