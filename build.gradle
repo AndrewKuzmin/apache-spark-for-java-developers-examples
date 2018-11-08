@@ -10,8 +10,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    scalaVersion = '2.11'
-    sparkVersion = '2.3.1'
+    scalaVersion = '2.12'
+    sparkVersion = '2.4.0'
 }
 
 repositories {
